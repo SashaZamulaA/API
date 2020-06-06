@@ -1,4 +1,4 @@
-package com.example.api.ui.dashboard
+package com.example.api.ui.future.list
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -10,20 +10,20 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import com.example.api.R
 
-class DashboardFragment : Fragment() {
+class FutureListWeatherFragment : Fragment() {
 
-    private lateinit var dashboardViewModel: DashboardViewModel
+    private lateinit var futureListWeathrViewModel: FutureListWeathrViewModel
 
     override fun onCreateView(
             inflater: LayoutInflater,
             container: ViewGroup?,
             savedInstanceState: Bundle?
     ): View? {
-        dashboardViewModel =
-                ViewModelProviders.of(this).get(DashboardViewModel::class.java)
+        futureListWeathrViewModel =
+                ViewModelProviders.of(this).get(FutureListWeathrViewModel::class.java)
         val root = inflater.inflate(R.layout.fragment_dashboard, container, false)
         val textView: TextView = root.findViewById(R.id.text_dashboard)
-        dashboardViewModel.text.observe(viewLifecycleOwner, Observer {
+        futureListWeathrViewModel.text.observe(viewLifecycleOwner, Observer {
             textView.text = it
         })
         return root

@@ -1,4 +1,4 @@
-package com.example.api.ui.home
+package com.example.api.ui.current
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -10,20 +10,20 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import com.example.api.R
 
-class HomeFragment : Fragment() {
+class CurrentWeatherFragment : Fragment() {
 
-    private lateinit var homeViewModel: HomeViewModel
+    private lateinit var currentWeatherModel: CurrentWeatherModel
 
     override fun onCreateView(
             inflater: LayoutInflater,
             container: ViewGroup?,
             savedInstanceState: Bundle?
     ): View? {
-        homeViewModel =
-                ViewModelProviders.of(this).get(HomeViewModel::class.java)
+        currentWeatherModel =
+                ViewModelProviders.of(this).get(CurrentWeatherModel::class.java)
         val root = inflater.inflate(R.layout.fragment_home, container, false)
         val textView: TextView = root.findViewById(R.id.text_home)
-        homeViewModel.text.observe(viewLifecycleOwner, Observer {
+        currentWeatherModel.text.observe(viewLifecycleOwner, Observer {
             textView.text = it
         })
         return root
